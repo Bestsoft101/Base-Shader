@@ -11,7 +11,7 @@ void main() {
 	color = gl_Color;
 	
 	if(fogShape == 1) {
-		vertexDistance = max(length(position.xz), abs(position.y));	
+		vertexDistance = max(length(position.xz), abs(position.y));
 	}else{
 		vertexDistance = length(position.xyz);
 	}
