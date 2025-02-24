@@ -1,0 +1,8 @@
+screen.VANILLA_TWEAKS=Vanilla Tweaks
+screen.VANILLA_TWEAKS.comment=A collection of tweaks to the emulated Vanilla renderer.
+
+option.FOG=Enabled Fog
+option.FOG.comment = Toggle the rendering of Fog.
+
+option.ENTITY_LIGHT_FIX=Default Shading
+option.ENTITY_LIGHT_FIX.comment = Disables the shading vanilla applies to blocks, entities and hand/items you're holding.

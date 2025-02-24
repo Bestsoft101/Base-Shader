@@ -24,9 +24,9 @@ void main() {
 	vec4 albedo = color;
 	
 	#ifdef FOG
-	if(renderStage != MC_RENDER_STAGE_SUNSET) {
-		albedo.rgb = mix(albedo.rgb, gl_Fog.color.rgb, smoothstep(gl_Fog.start, gl_Fog.end, vertexDistance));
-	}
+		if(renderStage != MC_RENDER_STAGE_SUNSET) {
+			albedo.rgb = mix(albedo.rgb, gl_Fog.color.rgb, smoothstep(gl_Fog.start, gl_Fog.end, vertexDistance));
+		}
 	#endif
 	
 	gl_FragData[0] = albedo;
