@@ -1,6 +1,6 @@
 #version 120
 
-#define ENTITY_LIGHT_FIX
+#define DIRECTIONAL_BLOCK_LIGHT
 
 uniform sampler2D lightmap;
 
@@ -17,7 +17,7 @@ void main() {
 	color = gl_Color * texture2D(lightmap, (gl_TextureMatrix[1] * gl_MultiTexCoord1).xy);
 	texcoord = gl_MultiTexCoord0.xy;
 	
-	#ifdef ENTITY_LIGHT_FIX
+	#ifdef DIRECTIONAL_BLOCK_LIGHT
 	vec3 normal = gl_NormalMatrix * gl_Normal;
 	normal = (gbufferModelViewInverse * vec4(normal, 0.0f)).xyz;
 	
