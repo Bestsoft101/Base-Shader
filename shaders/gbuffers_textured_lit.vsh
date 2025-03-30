@@ -1,6 +1,6 @@
 #version 120
 
-//#define BLOCK_LIGHT_BRIGHTNESS_FIX	// See https://bugs.mojang.com/browse/MC/issues/MC-278012
+//#define BLOCK_LIGHT_BRIGHTNESS_FIX
 
 uniform sampler2D lightmap;
 
