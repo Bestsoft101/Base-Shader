@@ -1,6 +1,6 @@
 #version 120
 
-#define FOG
+#define CLOUD_FOG
 
 uniform sampler2D texture;
 
@@ -15,7 +15,7 @@ uniform mat4 gbufferModelViewInverse;
 varying vec2 texcoord;
 varying vec4 color;
 
-#ifdef FOG
+#ifdef CLOUD_FOG
 
 float getFogStrength(int shape, float fogStart, float fogEnd) {
 	vec4 fragPos = vec4((gl_FragCoord.xy / vec2(viewWidth, viewHeight)) * 2.0f - 1.0f, gl_FragCoord.z * 2.0f - 1.0f, 1.0f);
@@ -38,7 +38,7 @@ float getFogStrength(int shape, float fogStart, float fogEnd) {
 void main() {
 	vec4 col = color;
 	
-	#ifdef FOG
+	#ifdef CLOUD_FOG
 	float width = gl_Fog.end - gl_Fog.start;
 	float newWidth = width * 4.0f;
 	

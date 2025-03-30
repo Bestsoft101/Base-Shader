@@ -1,6 +1,6 @@
 #version 120
 
-#define FOG
+#define WORLD_FOG
 
 uniform sampler2D texture;
 
@@ -17,7 +17,7 @@ uniform mat4 gbufferModelViewInverse;
 varying vec2 texcoord;
 varying vec4 color;
 
-#ifdef FOG
+#ifdef WORLD_FOG
 
 float getFogStrength(int shape, float fogStart, float fogEnd) {
 	vec4 fragPos = vec4((gl_FragCoord.xy / vec2(viewWidth, viewHeight)) * 2.0f - 1.0f, gl_FragCoord.z * 2.0f - 1.0f, 1.0f);
@@ -42,7 +42,7 @@ void main() {
 	
 	albedo.rgb = mix(albedo.rgb, entityColor.rgb * color.rgb, entityColor.a);
 	
-	#ifdef FOG
+	#ifdef WORLD_FOG
 	albedo.rgb = mix(albedo.rgb, gl_Fog.color.rgb, getFogStrength(fogShape, gl_Fog.start, gl_Fog.end));
 	#endif
 	

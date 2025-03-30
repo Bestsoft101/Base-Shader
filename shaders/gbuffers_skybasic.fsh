@@ -1,6 +1,6 @@
 #version 120
 
-#define FOG
+#define SKY_FOG
 
 varying float vertexDistance;
 varying vec3 position;
@@ -23,7 +23,7 @@ void main() {
 	
 	vec4 albedo = color;
 	
-	#ifdef FOG
+	#ifdef SKY_FOG
 	if(renderStage != MC_RENDER_STAGE_SUNSET) {
 		albedo.rgb = mix(albedo.rgb, gl_Fog.color.rgb, smoothstep(gl_Fog.start, gl_Fog.end, vertexDistance));
 	}
