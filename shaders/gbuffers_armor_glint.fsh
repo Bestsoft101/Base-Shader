@@ -1,0 +1,12 @@
+#version 120
+
+#define GLINT_STRENGTH 0.75 // [0.00 0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50 0.55 0.60 0.65 0.70 0.75 0.80 0.85 0.90 0.95 1.00]
+
+uniform sampler2D texture;
+
+varying vec2 texcoord;
+varying vec4 color;
+
+void main() {
+	gl_FragData[0] = texture2D(texture, texcoord) * color * vec4(GLINT_STRENGTH, GLINT_STRENGTH, GLINT_STRENGTH, 1.0f);
+}

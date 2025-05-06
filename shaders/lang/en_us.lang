@@ -10,3 +10,5 @@ option.DIRECTIONAL_BLOCK_LIGHT=Directional Block Light
 
 option.BLOCK_LIGHT_BRIGHTNESS_FIX=Sunlight Brightness Fix
 option.BLOCK_LIGHT_BRIGHTNESS_FIX.comment=See https://bugs.mojang.com/browse/MC/issues/MC-278012
+
+option.GLINT_STRENGTH=Enchantment Glint Strength
