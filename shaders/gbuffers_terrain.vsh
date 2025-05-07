@@ -12,7 +12,6 @@ in vec2 mc_Entity;
 varying vec2 texcoord;
 varying vec4 color;
 varying vec3 normal;
-flat varying vec3 position;
 flat varying float blockId;
 
 void main() {
@@ -24,7 +23,6 @@ void main() {
 	texcoord = gl_MultiTexCoord0.xy;
 
 	normal = mat3(gbufferModelViewInverse) * gl_NormalMatrix * gl_Normal;
-	position = gl_Vertex.xyz + cameraPositionInt + cameraPositionFract;
 	blockId = mc_Entity.x;
 
 	gl_Position = ftransform();

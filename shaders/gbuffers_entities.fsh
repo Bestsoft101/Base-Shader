@@ -1,5 +1,4 @@
 #version 120
-#include "/fog.glsl"
 
 #define WORLD_FOG
 

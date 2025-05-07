@@ -1,5 +1,4 @@
 #version 120
-#include "/fog.glsl"
 
 #define CLOUD_FOG
 

@@ -1,5 +1,4 @@
 #version 120
-#include "/fog.glsl"
 
 #define WORLD_FOG
 
@@ -12,9 +11,6 @@ uniform int fogShape;
 
 uniform mat4 gbufferProjectionInverse;
 uniform mat4 gbufferModelViewInverse;
-
-in vec2 texcoord;
-in vec4 color;
 
 varying vec2 texcoord;
 varying vec4 color;
