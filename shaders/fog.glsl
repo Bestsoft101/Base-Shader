@@ -1,7 +1,3 @@
-uniform float viewWidth;
-uniform float viewHeight;
-uniform mat4 gbufferProjectionInverse;
-uniform mat4 gbufferModelViewInverse;
 
 float getFogStrength(int shape, float fogStart, float fogEnd) {
 	vec4 fragPos = vec4((gl_FragCoord.xy / vec2(viewWidth, viewHeight)) * 2.0f - 1.0f, gl_FragCoord.z * 2.0f - 1.0f, 1.0f);
