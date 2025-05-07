@@ -12,3 +12,9 @@ option.BLOCK_LIGHT_BRIGHTNESS_FIX=Sunlight Brightness Fix
 option.BLOCK_LIGHT_BRIGHTNESS_FIX.comment=See https://bugs.mojang.com/browse/MC/issues/MC-278012
 
 option.GLINT_STRENGTH=Enchantment Glint Strength
+
+option.MIPMAP_TYPE=Mipmap Type
+option.MIPMAP_TYPE.comment=Changing the Mipmap Type from "Accurate" to something else will make Iris not reload all chunks when turning off shaders, making comparisons easier.
+value.MIPMAP_TYPE.0=Accurate
+value.MIPMAP_TYPE.1=Everything
+value.MIPMAP_TYPE.2=Only Solid
