@@ -6,6 +6,8 @@ uniform sampler2D lightmap;
 
 uniform mat4 gbufferModelViewInverse;
 
+uniform int entityId;
+
 varying vec2 texcoord;
 varying vec4 color;
 
@@ -18,18 +20,20 @@ void main() {
 	texcoord = gl_MultiTexCoord0.xy;
 	
 	#ifdef DIRECTIONAL_ENTITY_LIGHT
-	vec3 normal = gl_NormalMatrix * gl_Normal;
-	normal = (gbufferModelViewInverse * vec4(normal, 0.0f)).xyz;
-	
-	float light = ambientBrightness;
-	
-	light += clamp(dot(vec3(lightPos.x, lightPos.y, lightPos.z), normal), 0.0f, 1.0f) * lightBrightness;
-	light += clamp(dot(vec3(-lightPos.x, lightPos.y, -lightPos.z), normal), 0.0f, 1.0f) * lightBrightness;
-	
-	light = clamp(light, 0.0f, 1.0f);
-	
-	color.rgb *= light;
-	color.rgb = clamp(color.rgb, 0.0f, 1.0f);
+	if(entityId != 10000) {
+		vec3 normal = gl_NormalMatrix * gl_Normal;
+		normal = (gbufferModelViewInverse * vec4(normal, 0.0f)).xyz;
+		
+		float light = ambientBrightness;
+		
+		light += clamp(dot(vec3(lightPos.x, lightPos.y, lightPos.z), normal), 0.0f, 1.0f) * lightBrightness;
+		light += clamp(dot(vec3(-lightPos.x, lightPos.y, -lightPos.z), normal), 0.0f, 1.0f) * lightBrightness;
+		
+		light = clamp(light, 0.0f, 1.0f);
+		
+		color.rgb *= light;
+		color.rgb = clamp(color.rgb, 0.0f, 1.0f);
+	}
 	#endif
 	
 	gl_Position = ftransform();
