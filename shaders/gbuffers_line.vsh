@@ -25,8 +25,8 @@ void main() {
 	vec4 linePosStart = gbufferProjection * (VIEW_SCALE * (gbufferModelView * vec4(gl_Vertex.xyz, 1.0f)));
 	vec4 linePosEnd = gbufferProjection * (VIEW_SCALE * (gbufferModelView * vec4(gl_Vertex.xyz + gl_Normal, 1.0f)));
 	
-	linePosStart /= linePosStart.w;
-	linePosEnd /= linePosEnd.w;
+	linePosStart.xyz /= linePosStart.w;
+	linePosEnd.xyz /= linePosEnd.w;
 	
 	vec2 lineScreenDirection = normalize((linePosEnd.xy - linePosStart.xy) * resolution);
 	vec2 lineOffset = vec2(-lineScreenDirection.y, lineScreenDirection.x) * LINE_WIDTH / resolution;
