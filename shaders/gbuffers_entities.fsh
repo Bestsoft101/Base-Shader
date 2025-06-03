@@ -15,6 +15,7 @@ uniform mat4 gbufferProjectionInverse;
 uniform mat4 gbufferModelViewInverse;
 
 varying vec2 texcoord;
+varying vec3 light;
 varying vec4 color;
 
 #ifdef WORLD_FOG
@@ -23,8 +24,8 @@ varying vec4 color;
 
 void main() {
 	vec4 albedo = texture2D(texture, texcoord) * color;
-	
 	albedo.rgb = mix(albedo.rgb, entityColor.rgb, entityColor.a);
+	albedo.rgb *= light;
 	
 	#ifdef WORLD_FOG
 	albedo.rgb = mix(albedo.rgb, gl_Fog.color.rgb, getFogStrength(fogShape, gl_Fog.start, gl_Fog.end));
